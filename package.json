@@ -22,7 +22,7 @@
     "@types/node": "^20.11.10",
     "@unocss/preset-uno": "^0.58.3",
     "@vitejs/plugin-vue": "^5.0.3",
-    "typescript": "^5.3.3",
+    "typescript": "~5.0.4",
     "unocss": "^0.58.3",
     "vite": "^5.0.12",
     "vue-tsc": "^1.8.27"

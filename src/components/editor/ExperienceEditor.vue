@@ -42,7 +42,7 @@
           </el-form-item>
 
           <el-form-item label="工作亮点">
-            <div v-for="(highlight, hIndex) in item.highlights" :key="hIndex" class="highlight-item">
+            <div v-for="(_, hIndex) in item.highlights" :key="hIndex" class="highlight-item">
               <el-input v-model="item.highlights[hIndex]" placeholder="工作亮点">
                 <template #append>
                   <el-button @click="removeHighlight(index, hIndex)">删除</el-button>
@@ -89,7 +89,7 @@
 
                 <el-form-item label="项目亮点">
                   <div class="highlights-container">
-                    <div v-for="(highlight, hIndex) in project.highlights" :key="hIndex" class="highlight-item">
+                    <div v-for="(_, hIndex) in project.highlights" :key="hIndex" class="highlight-item">
                       <el-input v-model="project.highlights[hIndex]" placeholder="项目亮点">
                         <template #prefix>
                           <el-icon>

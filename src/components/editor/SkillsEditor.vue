@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, nextTick, computed } from 'vue'
+import { reactive, nextTick, computed } from 'vue'
 import { Plus } from '@element-plus/icons-vue'
 import { storeToRefs } from 'pinia'
 import { useResumeStore } from '@/stores/resume'

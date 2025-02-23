@@ -106,7 +106,7 @@
 
 <script setup lang="ts">
 import { ref, shallowRef, markRaw, computed, watch } from 'vue'
-import { User, School, Briefcase, Star, View, Close, Expand, Fold } from '@element-plus/icons-vue'
+import { User, School, Briefcase, Star, View, Close } from '@element-plus/icons-vue'
 import { useWindowSize } from '@vueuse/core'
 import BasicInfoEditor from '@/components/editor/BasicInfoEditor.vue'
 import EducationEditor from '@/components/editor/EducationEditor.vue'
