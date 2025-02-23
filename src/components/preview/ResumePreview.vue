@@ -47,9 +47,9 @@
         </div>
       </div>
 
-      <!-- 工作经验 -->
+      <!-- 工作经历 -->
       <div v-if="experience.length" class="section">
-        <h2 class="section-title">工作经验</h2>
+        <h2 class="section-title">工作经历</h2>
         <div v-for="(exp, index) in experience" :key="index" class="experience-item">
           <div class="header">
             <div class="title-group">

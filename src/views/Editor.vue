@@ -38,7 +38,7 @@
           </el-menu-item>
           <el-menu-item index="experience">
             <el-icon><Briefcase /></el-icon>
-            <template #title>工作经验</template>
+            <template #title>工作经历</template>
           </el-menu-item>
           <el-menu-item index="skills">
             <el-icon><Star /></el-icon>
@@ -133,7 +133,7 @@ const editorComponents = {
 const sectionTitles = {
   basics: '基本信息',
   education: '教育经历',
-  experience: '工作经验',
+  experience: '工作经历',
   skills: '技能特长'
 }
 

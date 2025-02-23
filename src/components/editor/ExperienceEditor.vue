@@ -1,16 +1,16 @@
 <template>
   <div class="experience-editor">
     <div class="editor-header">
-      <h3>工作经验</h3>
+      <h3>工作经历</h3>
       <el-button type="primary" @click="handleAdd">
         <el-icon>
           <Plus />
         </el-icon>
-        添加工作经验
+        添加工作经历
       </el-button>
     </div>
 
-    <el-empty v-if="!experience.length" description="暂无工作经验" />
+    <el-empty v-if="!experience.length" description="暂无工作经历" />
 
     <template v-else>
       <el-card v-for="(item, index) in experience" :key="index" class="mb-4">
