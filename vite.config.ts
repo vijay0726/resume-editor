@@ -4,6 +4,7 @@ import UnoCSS from 'unocss/vite'
 import { resolve } from 'path'
 
 export default defineConfig({
+  base: '/resume-editor/',
   plugins: [
     vue(),
     UnoCSS(),
