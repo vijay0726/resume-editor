@@ -29,7 +29,7 @@
 
 ## 预览
 
-![简历编辑器预览](src/assets/image.png)
+![简历编辑器预览](src/assets/example.png)
 
 
 ## 技术栈
