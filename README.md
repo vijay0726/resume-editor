@@ -1,6 +1,6 @@
 # 简历编辑器
 
-一个现代化的在线简历编辑器，基于 Vue 3 + TypeScript + Element Plus 开发。
+一个在线简历编辑器，基于 Vue 3 + TypeScript + Element Plus 开发。
 
 ## 背景
 
@@ -29,7 +29,7 @@
 
 ## 预览
 
-![简历编辑器预览](src/assets/example.png)
+![简历编辑器预览](src/assets/image.png)
 
 
 ## 技术栈
