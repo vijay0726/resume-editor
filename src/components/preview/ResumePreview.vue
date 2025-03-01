@@ -69,7 +69,7 @@
             <div v-for="(project, pIndex) in exp.projects" :key="pIndex" class="project-item">
               <h4 class="project-name">
                 {{ project.name }}
-                <span v-if="project.role" class="project-role">· {{ project.role }}</span>
+                <span v-if="project.role" class="project-role">{{ project.role }}</span>
               </h4>
               <p class="project-description">{{ project.description }}</p>
               <ul v-if="project.highlights?.length" class="project-highlights">
@@ -242,8 +242,8 @@ const handleExport = () => {
 }
 
 .experience-item {
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #ebeef5;
 }
 
@@ -289,19 +289,20 @@ const handleExport = () => {
 .description {
   color: #606266;
   line-height: 1.6;
-  margin: 8px 0;
+  margin: 8px 0 0;
   font-size: 14px;
   text-align: justify;
 }
 
 .highlights {
-  margin: 10px 0;
+  margin: 4px 0;
   padding-left: 20px;
   color: #606266;
 }
 
 .highlights li {
-  margin: 4px 0;
+  margin: 4px 0 0;
+  font-size: 14px;
   line-height: 1.6;
   text-align: justify;
 }
@@ -371,33 +372,39 @@ const handleExport = () => {
 .project-name {
   font-size: 15px;
   color: #303133;
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
   flex-wrap: wrap;
 }
 
 .project-role {
-  font-size: 14px;
-  color: #606266;
-  font-weight: normal;
-  padding: 2px 8px;
-  background: #f0f2f5;
-  border-radius: 4px;
+  font-size: 13px;
+  color: #409eff;
+  font-weight: 500;
+  padding: 3px 10px;
+  background: rgba(64, 158, 255, 0.1);
+  border: 1px solid rgba(64, 158, 255, 0.2);
+  border-radius: 12px;
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  line-height: 1;
+  transition: all 0.3s ease;
 }
 
 .project-description {
   color: #606266;
   font-size: 14px;
   line-height: 1.6;
-  margin: 8px 0;
+  margin: 8px 0 0;
   text-align: justify;
 }
 
 .project-highlights {
-  margin: 10px 0;
+  margin: 4px 0;
   padding-left: 20px;
   color: #606266;
   font-size: 14px;
@@ -409,6 +416,18 @@ const handleExport = () => {
   margin: 4px 0;
   line-height: 1.6;
   text-align: justify;
+  padding-left: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.project-highlights li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: #409eff;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .project-tech {

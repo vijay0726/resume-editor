@@ -42,19 +42,37 @@
           </el-form-item>
 
           <el-form-item label="工作亮点">
-            <div v-for="(_, hIndex) in item.highlights" :key="hIndex" class="highlight-item">
-              <el-input v-model="item.highlights[hIndex]" placeholder="工作亮点">
-                <template #append>
-                  <el-button @click="removeHighlight(index, hIndex)">删除</el-button>
-                </template>
-              </el-input>
+            <div class="highlights-wrapper">
+              <div v-for="(_, hIndex) in item.highlights" :key="hIndex" class="highlight-item">
+                <div class="highlight-index">#{{ hIndex + 1 }}</div>
+                <div class="highlight-content">
+                  <el-input 
+                    v-model="item.highlights[hIndex]" 
+                    placeholder="工作亮点"
+                    type="textarea"
+                    :rows="2"
+                    resize="none"
+                  />
+                  <el-button 
+                    class="highlight-delete-btn" 
+                    type="danger" 
+                    link
+                    @click="removeHighlight(index, hIndex)"
+                  >
+                    <el-icon><Delete /></el-icon>
+                  </el-button>
+                </div>
+              </div>
+              <el-button 
+                link 
+                type="primary" 
+                @click="addHighlight(index)"
+                class="add-highlight-btn"
+              >
+                <el-icon class="mr-1"><Plus /></el-icon>
+                添加亮点
+              </el-button>
             </div>
-            <el-button link type="primary" @click="addHighlight(index)">
-              <el-icon>
-                <Plus />
-              </el-icon>
-              添加亮点
-            </el-button>
           </el-form-item>
 
           <el-form-item label="项目经历">
@@ -90,20 +108,24 @@
                 <el-form-item label="项目亮点">
                   <div class="highlights-container">
                     <div v-for="(_, hIndex) in project.highlights" :key="hIndex" class="highlight-item">
-                      <el-input v-model="project.highlights[hIndex]" placeholder="项目亮点">
-                        <template #prefix>
-                          <el-icon>
-                            <Star />
-                          </el-icon>
-                        </template>
-                        <template #append>
-                          <el-button @click="removeProjectHighlight(index, pIndex, hIndex)">
-                            <el-icon>
-                              <Delete />
-                            </el-icon>
-                          </el-button>
-                        </template>
-                      </el-input>
+                      <div class="highlight-content">
+                        <div class="highlight-prefix">
+                          <el-icon><Star /></el-icon>
+                          <span class="highlight-number">{{ hIndex + 1 }}</span>
+                        </div>
+                        <el-input 
+                          v-model="project.highlights[hIndex]" 
+                          placeholder="项目亮点"
+                        />
+                        <el-button 
+                          class="highlight-delete-btn" 
+                          type="danger" 
+                          link
+                          @click="removeProjectHighlight(index, pIndex, hIndex)"
+                        >
+                          <el-icon><Delete /></el-icon>
+                        </el-button>
+                      </div>
                     </div>
                     <el-button link type="primary" @click="addProjectHighlight(index, pIndex)"
                       class="add-highlight-btn">
@@ -477,5 +499,134 @@ experience.value.forEach((exp: ResumeState['data']['experience'][0]) => {
 
 :deep(.el-form-item__label) {
   font-weight: 500;
+}
+
+.highlights-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e4e7ed;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.highlight-index {
+  flex-shrink: 0;
+  padding: 4px 8px;
+  background-color: #ecf5ff;
+  color: #409eff;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.highlight-item :deep(.el-input-group__append) {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.highlight-item :deep(.el-textarea__inner) {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.delete-btn {
+  height: 100%;
+  border: 1px solid #dcdfe6;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  padding: 8px 12px;
+  color: #f56c6c;
+}
+
+.delete-btn:hover {
+  background-color: #fef0f0;
+  color: #f56c6c;
+}
+
+.add-highlight-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: 1px dashed #409eff;
+  border-radius: 4px;
+}
+
+.add-highlight-btn:hover {
+  background-color: #ecf5ff;
+}
+
+.mr-1 {
+  margin-right: 4px;
+}
+
+.highlight-content {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.highlight-prefix {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #409eff;
+  padding: 0 8px;
+  border-right: 1px solid #dcdfe6;
+}
+
+.highlight-prefix :deep(.el-icon) {
+  font-size: 14px;
+}
+
+.highlight-number {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.highlight-delete-btn {
+  flex-shrink: 0;
+  padding: 8px;
+  height: 32px;
+  transition: all 0.3s;
+}
+
+.highlight-delete-btn:hover {
+  color: #f56c6c;
+  background-color: #fef0f0;
+  border-radius: 4px;
+}
+
+.highlight-item :deep(.el-input__wrapper) {
+  box-shadow: 0 0 0 1px #dcdfe6 inset;
+}
+
+.highlight-item :deep(.el-input__wrapper:hover) {
+  box-shadow: 0 0 0 1px #c0c4cc inset;
+}
+
+.highlight-item :deep(.el-input__wrapper.is-focus) {
+  box-shadow: 0 0 0 1px #409eff inset;
 }
 </style>
